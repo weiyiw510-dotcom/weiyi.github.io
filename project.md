@@ -66,3 +66,4 @@ permalink: /projects/UART/
 
 # UART协议
 1.通用异步收发器简称UART，即“Universal Asynchronous Receiver Transmitter”，用来传输串行数据：发送数据时，CPU将并行数据写入UART，UART按照一定格式在一根电线上串行发送，接收数据时，UART检测另一根电线上的信号，将串行数据收集放在缓冲区，CPU即可读取UART获得这些数据。UART以全双工方式传输，，最精简的连线方法只有三根电线：TxD用于发送数据，RxD用于接收数据，GND 用于给双方提供参考电平。
+![UART TX/RX 连接示意图]({{ "/assets/img/uart.png" | relative_url }})
