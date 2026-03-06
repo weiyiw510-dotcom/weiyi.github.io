@@ -1,4 +1,4 @@
-<img width="576" height="675" alt="image" src="https://github.com/user-attachments/assets/e2c73409-65df-45b4-8238-963a0185736e" />---
+
 layout: page
 title: UART(串口)
 permalink: /projects/UART/
