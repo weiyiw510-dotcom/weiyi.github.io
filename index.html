@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME NEXUS - 游戏资讯中心</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">GAME<span class="accent">NEXUS</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">首页</a></li>
+        <li><a href="#reviews">最新测评</a></li>
+        <li><a href="#classics">经典游戏</a></li>
+        <li><a href="#news">游戏新闻</a></li>
+        <li><a href="#ranking">排行榜</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-btn">🔍</button>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-particles" id="particles"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🔥 2026 年度最受期待</div>
+      <h1 class="hero-title">探索无限<br><span class="gradient-text">游戏世界</span></h1>
+      <p class="hero-desc">最专业的游戏测评 · 最全经典收录 · 最快游戏资讯</p>
+      <div class="hero-actions">
+        <a href="#reviews" class="btn-primary">查看最新测评</a>
+        <a href="#classics" class="btn-outline">经典游戏库</a>
+      </div>
+    </div>
+    <div class="hero-featured">
+      <div class="featured-card">
+        <div class="featured-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);">
+          <div class="featured-overlay">
+            <div class="game-genre-badge">RPG</div>
+            <div class="rating-badge">⭐ 9.8</div>
+          </div>
+          <div class="game-cover-art">🐉</div>
+        </div>
+        <div class="featured-info">
+          <span class="new-tag">NEW</span>
+          <h3>幻境传说：龙裔之战</h3>
+          <p>史诗级开放世界RPG · 2026 Q1 发布</p>
+          <div class="meta">
+            <span>PC / PS5 / Xbox</span>
+            <span class="score">9.8/10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 快速统计 -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-num" data-target="2847">0</span>
+        <span class="stat-label">游戏收录</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="532">0</span>
+        <span class="stat-label">专业测评</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="98">0</span>
+        <span class="stat-label">% 用户满意度</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="15">0</span>
+        <span class="stat-label">年游戏历史</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新测评 -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">📝 REVIEWS</span>
+        <h2 class="section-title">最新游戏测评</h2>
+      </div>
+      <a href="reviews.html" class="view-all">查看全部 →</a>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="tab active" onclick="filterReviews('all', this)">全部</button>
+      <button class="tab" onclick="filterReviews('rpg', this)">RPG</button>
+      <button class="tab" onclick="filterReviews('action', this)">动作</button>
+      <button class="tab" onclick="filterReviews('strategy', this)">策略</button>
+      <button class="tab" onclick="filterReviews('indie', this)">独立</button>
+      <button class="tab" onclick="filterReviews('fps', this)">射击</button>
+    </div>
+
+    <div class="reviews-grid" id="reviewsGrid">
+      <!-- 测评卡片由JS渲染 -->
+    </div>
+  </section>
+
+  <!-- 经典游戏收录 -->
+  <section class="classics-section" id="classics">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">🏛️ CLASSICS</span>
+        <h2 class="section-title">经典游戏收录</h2>
+      </div>
+      <a href="classics.html" class="view-all">进入游戏库 →</a>
+    </div>
+
+    <div class="era-tabs">
+      <button class="era-tab active" onclick="filterEra('all', this)">全部年代</button>
+      <button class="era-tab" onclick="filterEra('80s', this)">80年代</button>
+      <button class="era-tab" onclick="filterEra('90s', this)">90年代</button>
+      <button class="era-tab" onclick="filterEra('2000s', this)">2000年代</button>
+      <button class="era-tab" onclick="filterEra('2010s', this)">2010年代</button>
+    </div>
+
+    <div class="classics-grid" id="classicsGrid">
+      <!-- 经典游戏由JS渲染 -->
+    </div>
+  </section>
+
+  <!-- 游戏新闻 -->
+  <section class="news-section" id="news">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">📰 NEWS</span>
+        <h2 class="section-title">游戏快讯</h2>
+      </div>
+      <a href="#" class="view-all">更多新闻 →</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-main">
+        <div class="news-card big">
+          <div class="news-img big-img">🎮</div>
+          <div class="news-content">
+            <span class="news-cat hot">🔥 热门</span>
+            <h3>《幻境传说》DLC「深渊裂缝」上线，新增20小时剧情内容</h3>
+            <p>备受期待的大型DLC终于上线，带来全新地图、武器系统及多结局剧情...</p>
+            <div class="news-meta">
+              <span>📅 2026-03-27</span>
+              <span>👁️ 28.5k</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-item-img">🏆</div>
+          <div>
+            <span class="news-cat">E3 2026</span>
+            <h4>E3 2026 年度大奖揭晓，《星际漫游》斩获最佳游戏</h4>
+            <span class="news-time">2小时前</span>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-item-img">🎯</div>
+          <div>
+            <span class="news-cat">更新</span>
+            <h4>《原神》5.8版本预告：枫丹新角色登场，限时活动开启</h4>
+            <span class="news-time">5小时前</span>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-item-img">🚀</div>
+          <div>
+            <span class="news-cat">发售</span>
+            <h4>《赛博都市2077》续作正式立项，预计2028年发售</h4>
+            <span class="news-time">8小时前</span>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-item-img">🎪</div>
+          <div>
+            <span class="news-cat">活动</span>
+            <h4>Steam春季特卖开启，超过5000款游戏参与打折</h4>
+            <span class="news-time">12小时前</span>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-item-img">⚔️</div>
+          <div>
+            <span class="news-cat">测评</span>
+            <h4>《暗黑破坏神VI》首发测评：系列集大成之作</h4>
+            <span class="news-time">1天前</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 排行榜 -->
+  <section class="ranking-section" id="ranking">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">🏅 RANKING</span>
+        <h2 class="section-title">游戏排行榜</h2>
+      </div>
+    </div>
+    <div class="ranking-grid">
+      <div class="ranking-card">
+        <h3 class="ranking-title">🔥 本周热门</h3>
+        <div class="rank-list" id="hotRank"></div>
+      </div>
+      <div class="ranking-card">
+        <h3 class="ranking-title">⭐ 高分佳作</h3>
+        <div class="rank-list" id="scoreRank"></div>
+      </div>
+      <div class="ranking-card">
+        <h3 class="ranking-title">💎 用户推荐</h3>
+        <div class="rank-list" id="userRank"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅区域 -->
+  <section class="subscribe-section">
+    <div class="subscribe-content">
+      <div class="sub-icon">📬</div>
+      <h2>订阅游戏资讯</h2>
+      <p>第一时间获取最新测评、游戏发售及活动信息</p>
+      <div class="sub-form">
+        <input type="email" placeholder="输入您的邮箱地址..." class="sub-input">
+        <button class="sub-btn">立即订阅</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">GAME<span class="accent">NEXUS</span></span>
+        </div>
+        <p>最专业的游戏资讯平台，为玩家提供权威测评与经典游戏收录。</p>
+        <div class="social-links">
+          <a href="#">微博</a>
+          <a href="#">B站</a>
+          <a href="#">抖音</a>
+          <a href="#">微信</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>内容</h4>
+          <ul>
+            <li><a href="#">最新测评</a></li>
+            <li><a href="#">经典游戏</a></li>
+            <li><a href="#">游戏新闻</a></li>
+            <li><a href="#">排行榜</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>平台</h4>
+          <ul>
+            <li><a href="#">PC游戏</a></li>
+            <li><a href="#">主机游戏</a></li>
+            <li><a href="#">手机游戏</a></li>
+            <li><a href="#">独立游戏</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>关于</h4>
+          <ul>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">投稿指南</a></li>
+            <li><a href="#">广告合作</a></li>
+            <li><a href="#">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 GameNexus. All rights reserved. 专注游戏资讯 · 守护玩家热爱</p>
+    </div>
+  </footer>
+
+  <!-- 移动端菜单遮罩 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <button class="close-menu" onclick="toggleMenu()">✕</button>
+      <ul>
+        <li><a href="#" onclick="toggleMenu()">首页</a></li>
+        <li><a href="#reviews" onclick="toggleMenu()">最新测评</a></li>
+        <li><a href="#classics" onclick="toggleMenu()">经典游戏</a></li>
+        <li><a href="#news" onclick="toggleMenu()">游戏新闻</a></li>
+        <li><a href="#ranking" onclick="toggleMenu()">排行榜</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
