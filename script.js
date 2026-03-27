@@ -3,42 +3,42 @@
 const reviewsData = [
   {
     id: 1, genre: "rpg", title: "幻境传说：龙裔之战",
-    emoji: "🐉", bg: "linear-gradient(135deg, #1a1a2e, #16213e)",
+    image: "game-covers/rpg_9.8.png",
     score: 9.8, platforms: ["PC", "PS5"],
     desc: "史诗级开放世界RPG，庞大的世界观与深度剧情令人叹为观止，战斗系统流畅而富有策略性。",
     author: "龙骑士", date: "2026-03-25", stars: 5
   },
   {
     id: 2, genre: "action", title: "钢铁战神：末日崛起",
-    emoji: "⚔️", bg: "linear-gradient(135deg, #2d1b1b, #4a1515)",
+    image: "game-covers/action_9.2.png",
     score: 9.2, platforms: ["PC", "Xbox"],
     desc: "震撼的动作体验，敌人AI智能且具挑战性，画面效果堪称业界标杆，Boss战设计精彩绝伦。",
     author: "战神", date: "2026-03-22", stars: 5
   },
   {
     id: 3, genre: "indie", title: "像素旅途",
-    emoji: "🎮", bg: "linear-gradient(135deg, #1a2e1a, #0d4a2a)",
+    image: "game-covers/indie_8.9.png",
     score: 8.9, platforms: ["PC"],
     desc: "充满创意的独立游戏，独特的像素艺术风格配合感人的故事，令人沉浸其中无法自拔。",
     author: "像素猫", date: "2026-03-20", stars: 4
   },
   {
     id: 4, genre: "strategy", title: "星际帝国：银河征服",
-    emoji: "🚀", bg: "linear-gradient(135deg, #0d1a2e, #0a2040)",
+    image: "game-covers/strategy_9.0.png",
     score: 9.0, platforms: ["PC"],
     desc: "深度策略游戏，庞大的科技树与外交系统，多人模式体验极佳，适合策略迷长时间沉浸。",
     author: "银河将军", date: "2026-03-18", stars: 5
   },
   {
     id: 5, genre: "fps", title: "暗影特工：零点行动",
-    emoji: "🎯", bg: "linear-gradient(135deg, #1a1a1a, #2d2d2d)",
+    image: "game-covers/fps_8.7.png",
     score: 8.7, platforms: ["PC", "PS5", "Xbox"],
     desc: "精准的射击手感，多样化的地图设计，竞技模式平衡性优秀，是年度最佳FPS之一。",
     author: "神枪手", date: "2026-03-15", stars: 4
   },
   {
     id: 6, genre: "rpg", title: "时空织梦者",
-    emoji: "⏳", bg: "linear-gradient(135deg, #2d1a3e, #1a0a2e)",
+    image: "game-covers/rpg2_9.5.png",
     score: 9.5, platforms: ["PC", "Switch"],
     desc: "令人惊叹的时间旅行机制，多条支线剧情环环相扣，每一个选择都影响最终结局。",
     author: "梦境旅人", date: "2026-03-12", stars: 5
@@ -46,22 +46,22 @@ const reviewsData = [
 ];
 
 const classicsData = [
-  { id: 1, title: "超级马里奥兄弟", emoji: "🍄", year: 1985, era: "80s", score: 9.9, bg: "#e63946" },
-  { id: 2, title: "塞尔达传说", emoji: "🗡️", year: 1986, era: "80s", score: 9.8, bg: "#2d6a4f" },
-  { id: 3, title: "街头霸王II", emoji: "🥊", year: 1991, era: "90s", score: 9.7, bg: "#e76f51" },
-  { id: 4, title: "最终幻想VII", emoji: "🌟", year: 1997, era: "90s", score: 9.9, bg: "#023e8a" },
-  { id: 5, title: "古惑狼", emoji: "🦊", year: 1996, era: "90s", score: 9.0, bg: "#e9c46a" },
-  { id: 6, title: "星际争霸", emoji: "👽", year: 1998, era: "90s", score: 9.8, bg: "#1d3557" },
-  { id: 7, title: "魔兽世界", emoji: "⚔️", year: 2004, era: "2000s", score: 9.7, bg: "#6a0572" },
-  { id: 8, title: "半条命2", emoji: "🔫", year: 2004, era: "2000s", score: 9.8, bg: "#ff6b35" },
-  { id: 9, title: "我的世界", emoji: "🧱", year: 2011, era: "2010s", score: 9.5, bg: "#52b788" },
-  { id: 10, title: "上古卷轴V", emoji: "🐲", year: 2011, era: "2010s", score: 9.6, bg: "#2b2d42" },
-  { id: 11, title: "黑魂III", emoji: "💀", year: 2016, era: "2010s", score: 9.7, bg: "#1a1a2e" },
-  { id: 12, title: "旷野之息", emoji: "🌿", year: 2017, era: "2010s", score: 9.9, bg: "#74c69d" },
-  { id: 13, title: "俄罗斯方块", emoji: "🧩", year: 1984, era: "80s", score: 9.5, bg: "#240046" },
-  { id: 14, title: "赛车大奖赛", emoji: "🏎️", year: 1992, era: "90s", score: 8.8, bg: "#dc2f02" },
-  { id: 15, title: "光晕2", emoji: "🪐", year: 2004, era: "2000s", score: 9.5, bg: "#0d3b66" },
-  { id: 16, title: "女神异闻录5", emoji: "🎭", year: 2016, era: "2010s", score: 9.8, bg: "#c1121f" }
+  { id: 1, title: "超级马里奥兄弟", image: "classic-covers/smb.png", year: 1985, era: "80s", score: 9.9 },
+  { id: 2, title: "塞尔达传说", image: "classic-covers/zelda.png", year: 1986, era: "80s", score: 9.8 },
+  { id: 3, title: "街头霸王II", image: "classic-covers/sf2.png", year: 1991, era: "90s", score: 9.7 },
+  { id: 4, title: "最终幻想VII", image: "classic-covers/ff7.png", year: 1997, era: "90s", score: 9.9 },
+  { id: 5, title: "古惑狼", image: "classic-covers/crash.png", year: 1996, era: "90s", score: 9.0 },
+  { id: 6, title: "星际争霸", image: "classic-covers/sc.png", year: 1998, era: "90s", score: 9.8 },
+  { id: 7, title: "魔兽世界", image: "classic-covers/wow.png", year: 2004, era: "2000s", score: 9.7 },
+  { id: 8, title: "半条命2", image: "classic-covers/hl2.png", year: 2004, era: "2000s", score: 9.8 },
+  { id: 9, title: "我的世界", image: "classic-covers/mc.png", year: 2011, era: "2010s", score: 9.5 },
+  { id: 10, title: "上古卷轴V", image: "classic-covers/skyrim.png", year: 2011, era: "2010s", score: 9.6 },
+  { id: 11, title: "黑魂III", image: "classic-covers/ds3.png", year: 2016, era: "2010s", score: 9.7 },
+  { id: 12, title: "旷野之息", image: "classic-covers/botw.png", year: 2017, era: "2010s", score: 9.9 },
+  { id: 13, title: "俄罗斯方块", image: "classic-covers/tetris.png", year: 1984, era: "80s", score: 9.5 },
+  { id: 14, title: "赛车大奖赛", image: "classic-covers/fzero.png", year: 1992, era: "90s", score: 8.8 },
+  { id: 15, title: "光环2", image: "classic-covers/halo2.png", year: 2004, era: "2000s", score: 9.5 },
+  { id: 16, title: "女神异闻录5", image: "classic-covers/p5.png", year: 2016, era: "2010s", score: 9.8 }
 ];
 
 const rankingData = {
@@ -100,9 +100,9 @@ function renderReviews(filter = 'all') {
 
     return `
       <div class="review-card fade-in" onclick="openReview(${r.id})">
-        <div class="review-thumb" style="background: ${r.bg}">
+        <div class="review-thumb" style="background: #0a0a0f;">
+          <img src="${r.image}" alt="${r.title}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
           <div class="review-genre">${getGenreLabel(r.genre)}</div>
-          <div style="font-size:64px; filter:drop-shadow(0 0 15px rgba(255,255,255,0.3))">${r.emoji}</div>
           <div class="review-score-badge">${r.score}</div>
         </div>
         <div class="review-body">
@@ -144,8 +144,8 @@ function renderClassics(filter = 'all') {
 
   grid.innerHTML = filtered.map(c => `
     <div class="classic-card fade-in" onclick="openClassic(${c.id})">
-      <div class="classic-thumb" style="background: ${c.bg}20; border-bottom: 1px solid ${c.bg}40">
-        <div style="font-size:52px; filter:drop-shadow(0 0 10px rgba(255,255,255,0.2))">${c.emoji}</div>
+      <div class="classic-thumb" style="background: #0a0a0f; padding:0; display:flex; align-items:center; justify-content:center;">
+        <img src="${c.image}" alt="${c.title}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#0f3460)'">
         <span class="classic-era">${c.era}</span>
       </div>
       <div class="classic-body">

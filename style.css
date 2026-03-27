@@ -515,12 +515,13 @@ section {
 }
 
 .review-thumb {
-  height: 180px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 64px;
   position: relative;
+  overflow: hidden;
 }
 
 .review-thumb::after {
@@ -666,6 +667,7 @@ section {
   justify-content: center;
   font-size: 56px;
   position: relative;
+  overflow: hidden;
 }
 
 .classic-era {
