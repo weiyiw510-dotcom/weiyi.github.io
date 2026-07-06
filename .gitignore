@@ -1,0 +1,25 @@
+# Keil 编译输出
+Objects/
+Listings/
+*.axf
+*.hex
+*.map
+*.lst
+*.o
+*.crf
+*.d
+*.dep
+*.lnp
+*.htm
+
+# Keil 用户本地配置
+*.uvguix.*
+*.uvgui.*
+*.uvgui_*
+
+# 临时文件
+*.bak
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
