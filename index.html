@@ -1,313 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAME NEXUS - 游戏资讯中心</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Wei Yi 的嵌入式系统与精密控制项目：128通道、1 kHz级多通道DAC控制模块。">
+  <meta name="theme-color" content="#071018">
+  <title>Wei Yi | 128通道高速控制系统</title>
+  <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page-grid" aria-hidden="true"></div>
 
-  <!-- 顶部导航 -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <span class="logo-icon">⬡</span>
-        <span class="logo-text">GAME<span class="accent">NEXUS</span></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#" class="active">首页</a></li>
-        <li><a href="#reviews">最新测评</a></li>
-        <li><a href="#classics">经典游戏</a></li>
-        <li><a href="#news">游戏新闻</a></li>
-        <li><a href="#ranking">排行榜</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="search-btn">🔍</button>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-      </div>
-    </div>
-  </nav>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回顶部">
+      <span class="brand-mark">WY</span>
+      <span>Embedded Systems</span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="#project">项目</a>
+      <a href="#firmware">代码</a>
+      <a href="#hardware">PCB</a>
+      <a href="#roadmap">进展</a>
+    </nav>
+    <a class="github-link" href="https://github.com/weiyiw510-dotcom" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-particles" id="particles"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge">🔥 2026 年度最受期待</div>
-      <h1 class="hero-title">探索无限<br><span class="gradient-text">游戏世界</span></h1>
-      <p class="hero-desc">最专业的游戏测评 · 最全经典收录 · 最快游戏资讯</p>
-      <div class="hero-actions">
-        <a href="#reviews" class="btn-primary">查看最新测评</a>
-        <a href="#classics" class="btn-outline">经典游戏库</a>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> CURRENT ENGINEERING PROJECT · 2026</p>
+        <h1>128通道<br><span>高速精密控制系统</span></h1>
+        <p class="hero-lead">
+          面向磁流体变形镜与多线圈阵列的嵌入式驱动模块。
+          使用 STM32、16片 AD5328 和分组并行架构，目标实现
+          <strong>128通道、1 kHz级同步更新</strong>，并扩展至千通道系统。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#project">查看项目详情</a>
+          <a class="button secondary" href="https://github.com/weiyiw510-dotcom/weiyi.github.io/tree/main/projects/128ch-driver/code" target="_blank" rel="noreferrer">查看精选代码 ↗</a>
+        </div>
+        <div class="hero-meta">
+          <span>STM32F407</span>
+          <span>AD5328 × 16</span>
+          <span>4-Layer PCB</span>
+          <span>Keil / HAL / DMA</span>
+        </div>
       </div>
-    </div>
-    <div class="hero-featured">
-      <div class="featured-card">
-        <div class="featured-img" style="background: #0a0a0f; padding:0; overflow:hidden;">
-          <img src="game-covers/rpg_9.8.png" alt="幻境传说" style="width:100%;height:100%;object-fit:cover;">
-          <div class="featured-overlay">
-            <div class="game-genre-badge">RPG</div>
-            <div class="rating-badge">⭐ 9.8</div>
+
+      <aside class="system-card" aria-label="系统目标概览">
+        <div class="card-topline">
+          <span>SYSTEM / 01</span>
+          <span class="live-label">IN DEVELOPMENT</span>
+        </div>
+        <div class="metric primary-metric">
+          <span class="metric-value">128</span>
+          <span class="metric-unit">CHANNELS</span>
+        </div>
+        <div class="metric-row">
+          <div class="metric">
+            <span class="metric-value">1 kHz</span>
+            <span class="metric-unit">TARGET UPDATE</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">12 bit</span>
+            <span class="metric-unit">DAC RESOLUTION</span>
           </div>
         </div>
-        <div class="featured-info">
-          <span class="new-tag">NEW</span>
-          <h3>幻境传说：龙裔之战</h3>
-          <p>史诗级开放世界RPG · 2026 Q1 发布</p>
-          <div class="meta">
-            <span>PC / PS5 / Xbox</span>
-            <span class="score">9.8/10</span>
-          </div>
+        <div class="signal-scope" aria-hidden="true">
+          <svg viewBox="0 0 600 120" preserveAspectRatio="none">
+            <path d="M0 70H42V28H74V70H118V28H150V70H194V28H226V70H270V28H302V70H346V28H378V70H422V28H454V70H498V28H530V70H600"/>
+            <path class="scope-secondary" d="M0 94H90V46H198V94H306V46H414V94H522V46H600"/>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stats" aria-label="项目关键指标">
+      <div><strong>16</strong><span>AD5328 DAC</span></div>
+      <div><strong>4</strong><span>高速逻辑缓冲组</span></div>
+      <div><strong>7</strong><span>输出连接器</span></div>
+      <div><strong>1000+</strong><span>二阶段通道规模</span></div>
+    </section>
+
+    <section class="section" id="project">
+      <div class="section-heading">
+        <p class="eyebrow">PROJECT OVERVIEW</p>
+        <h2>从实验室原型到可扩展硬件模块</h2>
+        <p>项目将原有 NI/Simulink 数字输出链路迁移到独立嵌入式平台，以降低系统体积与成本，并获得可控的实时更新性能。</p>
+      </div>
+
+      <div class="architecture" role="img" aria-label="系统架构：上位机到STM32，再到缓冲器、DAC和128路输出">
+        <div class="arch-node">
+          <span class="arch-index">01</span>
+          <strong>Host / Algorithm</strong>
+          <small>目标面形与通道数据</small>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node active">
+          <span class="arch-index">02</span>
+          <strong>STM32 Controller</strong>
+          <small>缓存、调度、同步时序</small>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node">
+          <span class="arch-index">03</span>
+          <strong>Logic Fan-out</strong>
+          <small>SCLK / MOSI / CS / LDAC</small>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div class="arch-node">
+          <span class="arch-index">04</span>
+          <strong>16 × AD5328</strong>
+          <small>128路模拟量输出</small>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- 快速统计 -->
-  <section class="stats-bar">
-    <div class="stats-container">
-      <div class="stat-item">
-        <span class="stat-num" data-target="2847">0</span>
-        <span class="stat-label">游戏收录</span>
+      <div class="challenge-grid">
+        <article>
+          <span>01</span>
+          <h3>确定性时序</h3>
+          <p>将16位帧、片选、锁存更新和通道寻址组织为可验证的硬件时序，减少CPU逐位翻转带来的抖动。</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>高扇出信号完整性</h3>
+          <p>使用 SN74AHCT244 分组缓冲以及源端串联电阻，控制 SCLK、MOSI、CS 和 LDAC 的边沿与扇出负载。</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>精密电源与参考</h3>
+          <p>四层板分别规划数字电源、DAC电源、5 V参考与连续地平面，并对每片DAC进行就近去耦。</p>
+        </article>
       </div>
-      <div class="stat-item">
-        <span class="stat-num" data-target="532">0</span>
-        <span class="stat-label">专业测评</span>
+    </section>
+
+    <section class="section split-section" id="firmware">
+      <div class="split-copy">
+        <p class="eyebrow">PART I · FIRMWARE</p>
+        <h2>以定时器与DMA生成确定性波形</h2>
+        <p>
+          已在 STM32F103 原型上完成 16位DAC帧、128通道寻址与逻辑分析仪验证。
+          当前原型采用 TIM2 触发 DMA，直接向 GPIO ODR 回放预计算波形，完整帧实测设计值约
+          <strong>43.4 Hz</strong>。
+        </p>
+        <p>
+          下一阶段迁移至 STM32F407，并通过更高总线带宽、并行分组发送与双缓冲策略，
+          推进至128通道 1 kHz级更新目标。
+        </p>
+        <ul class="feature-list">
+          <li><span>✓</span> 128通道数据缓冲与12位限幅</li>
+          <li><span>✓</span> 16位帧预生成与循环DMA回放</li>
+          <li><span>✓</span> FRAME_SYNC辅助逻辑分析仪对齐</li>
+          <li><span>→</span> F407并行SPI/DMA架构优化中</li>
+        </ul>
+        <a class="text-link" href="projects/128ch-driver/code/dac_driver.c">浏览 dac_driver.c →</a>
       </div>
-      <div class="stat-item">
-        <span class="stat-num" data-target="98">0</span>
-        <span class="stat-label">% 用户满意度</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num" data-target="15">0</span>
-        <span class="stat-label">年游戏历史</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- 最新测评 -->
-  <section class="reviews-section" id="reviews">
-    <div class="section-header">
-      <div>
-        <span class="section-tag">📝 REVIEWS</span>
-        <h2 class="section-title">最新游戏测评</h2>
-      </div>
-      <a href="reviews.html" class="view-all">查看全部 →</a>
-    </div>
-
-    <div class="filter-tabs">
-      <button class="tab active" onclick="filterReviews('all', this)">全部</button>
-      <button class="tab" onclick="filterReviews('rpg', this)">RPG</button>
-      <button class="tab" onclick="filterReviews('action', this)">动作</button>
-      <button class="tab" onclick="filterReviews('strategy', this)">策略</button>
-      <button class="tab" onclick="filterReviews('indie', this)">独立</button>
-      <button class="tab" onclick="filterReviews('fps', this)">射击</button>
-    </div>
-
-    <div class="reviews-grid" id="reviewsGrid">
-      <!-- 测评卡片由JS渲染 -->
-    </div>
-  </section>
-
-  <!-- 经典游戏收录 -->
-  <section class="classics-section" id="classics">
-    <div class="section-header">
-      <div>
-        <span class="section-tag">🏛️ CLASSICS</span>
-        <h2 class="section-title">经典游戏收录</h2>
-      </div>
-      <a href="classics.html" class="view-all">进入游戏库 →</a>
-    </div>
-
-    <div class="era-tabs">
-      <button class="era-tab active" onclick="filterEra('all', this)">全部年代</button>
-      <button class="era-tab" onclick="filterEra('80s', this)">80年代</button>
-      <button class="era-tab" onclick="filterEra('90s', this)">90年代</button>
-      <button class="era-tab" onclick="filterEra('2000s', this)">2000年代</button>
-      <button class="era-tab" onclick="filterEra('2010s', this)">2010年代</button>
-    </div>
-
-    <div class="classics-grid" id="classicsGrid">
-      <!-- 经典游戏由JS渲染 -->
-    </div>
-  </section>
-
-  <!-- 游戏新闻 -->
-  <section class="news-section" id="news">
-    <div class="section-header">
-      <div>
-        <span class="section-tag">📰 NEWS</span>
-        <h2 class="section-title">游戏快讯</h2>
-      </div>
-      <a href="#" class="view-all">更多新闻 →</a>
-    </div>
-    <div class="news-grid">
-      <div class="news-main">
-        <div class="news-card big">
-          <div class="news-img big-img">🎮</div>
-          <div class="news-content">
-            <span class="news-cat hot">🔥 热门</span>
-            <h3>《幻境传说》DLC「深渊裂缝」上线，新增20小时剧情内容</h3>
-            <p>备受期待的大型DLC终于上线，带来全新地图、武器系统及多结局剧情...</p>
-            <div class="news-meta">
-              <span>📅 2026-03-27</span>
-              <span>👁️ 28.5k</span>
-            </div>
-          </div>
+      <div class="code-window" aria-label="DAC驱动核心代码节选">
+        <div class="window-bar">
+          <span><i></i><i></i><i></i></span>
+          <span>dac_driver.c</span>
+          <span>C / HAL</span>
         </div>
-      </div>
-      <div class="news-list">
-        <div class="news-item">
-          <div class="news-item-img">🏆</div>
-          <div>
-            <span class="news-cat">E3 2026</span>
-            <h4>E3 2026 年度大奖揭晓，《星际漫游》斩获最佳游戏</h4>
-            <span class="news-time">2小时前</span>
-          </div>
-        </div>
-        <div class="news-item">
-          <div class="news-item-img">🎯</div>
-          <div>
-            <span class="news-cat">更新</span>
-            <h4>《原神》5.8版本预告：枫丹新角色登场，限时活动开启</h4>
-            <span class="news-time">5小时前</span>
-          </div>
-        </div>
-        <div class="news-item">
-          <div class="news-item-img">🚀</div>
-          <div>
-            <span class="news-cat">发售</span>
-            <h4>《赛博都市2077》续作正式立项，预计2028年发售</h4>
-            <span class="news-time">8小时前</span>
-          </div>
-        </div>
-        <div class="news-item">
-          <div class="news-item-img">🎪</div>
-          <div>
-            <span class="news-cat">活动</span>
-            <h4>Steam春季特卖开启，超过5000款游戏参与打折</h4>
-            <span class="news-time">12小时前</span>
-          </div>
-        </div>
-        <div class="news-item">
-          <div class="news-item-img">⚔️</div>
-          <div>
-            <span class="news-cat">测评</span>
-            <h4>《暗黑破坏神VI》首发测评：系列集大成之作</h4>
-            <span class="news-time">1天前</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <pre><code><span class="code-comment">/* 128-channel deterministic waveform */</span>
+#define DAC_CHANNEL_COUNT       <span class="code-number">128U</span>
+#define DAC_BITS_PER_CHANNEL    <span class="code-number">16U</span>
+#define DAC_SAMPLES_PER_BIT     <span class="code-number">2U</span>
 
-  <!-- 排行榜 -->
-  <section class="ranking-section" id="ranking">
-    <div class="section-header">
-      <div>
-        <span class="section-tag">🏅 RANKING</span>
-        <h2 class="section-title">游戏排行榜</h2>
-      </div>
-    </div>
-    <div class="ranking-grid">
-      <div class="ranking-card">
-        <h3 class="ranking-title">🔥 本周热门</h3>
-        <div class="rank-list" id="hotRank"></div>
-      </div>
-      <div class="ranking-card">
-        <h3 class="ranking-title">⭐ 高分佳作</h3>
-        <div class="rank-list" id="scoreRank"></div>
-      </div>
-      <div class="ranking-card">
-        <h3 class="ranking-title">💎 用户推荐</h3>
-        <div class="rank-list" id="userRank"></div>
-      </div>
-    </div>
-  </section>
+<span class="code-keyword">static void</span> DAC_BuildFastFrameWave(<span class="code-keyword">void</span>)
+{
+  <span class="code-keyword">for</span> (channel = <span class="code-number">0U</span>;
+       channel &lt; DAC_CHANNEL_COUNT;
+       channel++)
+  {
+    word = DAC_MakeFrameWord(channel);
 
-  <!-- 订阅区域 -->
-  <section class="subscribe-section">
-    <div class="subscribe-content">
-      <div class="sub-icon">📬</div>
-      <h2>订阅游戏资讯</h2>
-      <p>第一时间获取最新测评、游戏发售及活动信息</p>
-      <div class="sub-form">
-        <input type="email" placeholder="输入您的邮箱地址..." class="sub-input">
-        <button class="sub-btn">立即订阅</button>
+    <span class="code-keyword">for</span> (bit = <span class="code-number">0U</span>;
+         bit &lt; DAC_BITS_PER_CHANNEL;
+         bit++)
+    {
+      dma_wave_table[pos++] =
+        DAC_MakeOdrState(channel,
+          <span class="code-number">1U</span>, mosi_high, <span class="code-number">0U</span>,
+          frame_mark_high);
+    }
+  }
+}</code></pre>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 页脚 -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <div class="logo">
-          <span class="logo-icon">⬡</span>
-          <span class="logo-text">GAME<span class="accent">NEXUS</span></span>
+    <section class="section" id="hardware">
+      <div class="section-heading hardware-heading">
+        <div>
+          <p class="eyebrow">PART II · HARDWARE / PCB</p>
+          <h2>128通道四层驱动板</h2>
         </div>
-        <p>最专业的游戏资讯平台，为玩家提供权威测评与经典游戏收录。</p>
-        <div class="social-links">
-          <a href="#">微博</a>
-          <a href="#">B站</a>
-          <a href="#">抖音</a>
-          <a href="#">微信</a>
-        </div>
+        <p>STM32F407 + 4组逻辑缓冲 + 16片AD5328，按信号组进行扇出和布局，输出端按通道顺序映射至7个连接器。</p>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>内容</h4>
+
+      <figure class="pcb-figure">
+        <img src="assets/project/pcb-overview.png" alt="128通道驱动板PCB整体布线视图" loading="lazy">
+        <figcaption>
+          <span>PCB ROUTING / WORK IN PROGRESS</span>
+          <span>EasyEDA Pro · 4 layers</span>
+        </figcaption>
+      </figure>
+
+      <div class="hardware-grid">
+        <figure>
+          <img src="assets/project/pcb-routing-detail.png" alt="AD5328阵列与输出连接器的局部布线" loading="lazy">
+          <figcaption>DAC阵列、去耦与输出扇出</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/project/clock-layout.png" alt="STM32外部晶振紧凑布局" loading="lazy">
+          <figcaption>MCU外部晶振与负载电容布局</figcaption>
+        </figure>
+        <div class="hardware-notes">
+          <p class="eyebrow">DESIGN DECISIONS</p>
           <ul>
-            <li><a href="#">最新测评</a></li>
-            <li><a href="#">经典游戏</a></li>
-            <li><a href="#">游戏新闻</a></li>
-            <li><a href="#">排行榜</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>平台</h4>
-          <ul>
-            <li><a href="#">PC游戏</a></li>
-            <li><a href="#">主机游戏</a></li>
-            <li><a href="#">手机游戏</a></li>
-            <li><a href="#">独立游戏</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>关于</h4>
-          <ul>
-            <li><a href="#">关于我们</a></li>
-            <li><a href="#">投稿指南</a></li>
-            <li><a href="#">广告合作</a></li>
-            <li><a href="#">联系我们</a></li>
+            <li><strong>Top</strong><span>器件与关键短连接</span></li>
+            <li><strong>Inner 1</strong><span>连续GND参考平面</span></li>
+            <li><strong>Inner 2</strong><span>3V3 / DAC_5V / VREF_5V</span></li>
+            <li><strong>Bottom</strong><span>长距离数字总线与交叉</span></li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 GameNexus. All rights reserved. 专注游戏资讯 · 守护玩家热爱</p>
-    </div>
+    </section>
+
+    <section class="section roadmap-section" id="roadmap">
+      <div class="section-heading">
+        <p class="eyebrow">VERIFICATION & ROADMAP</p>
+        <h2>工程进展</h2>
+      </div>
+      <div class="timeline">
+        <article class="done">
+          <span class="timeline-dot"></span>
+          <p class="timeline-state">VERIFIED</p>
+          <h3>数字时序原型</h3>
+          <p>完成16位帧、128通道寻址、FRAME_SYNC和逻辑分析仪解码验证。</p>
+        </article>
+        <article class="done">
+          <span class="timeline-dot"></span>
+          <p class="timeline-state">COMPLETED</p>
+          <h3>原理图与器件选型</h3>
+          <p>完成F407控制核心、缓冲器、16片DAC、电源与调试接口设计。</p>
+        </article>
+        <article class="active">
+          <span class="timeline-dot"></span>
+          <p class="timeline-state">IN PROGRESS</p>
+          <h3>PCB布线与电源完整性</h3>
+          <p>正在完成模拟输出、数字总线、局部去耦以及四层电源/地规划。</p>
+        </article>
+        <article>
+          <span class="timeline-dot"></span>
+          <p class="timeline-state">NEXT</p>
+          <h3>样板测试与1 kHz验证</h3>
+          <p>焊接调试后测量全通道刷新率、同步误差、噪声与输出稳定性。</p>
+        </article>
+        <article>
+          <span class="timeline-dot"></span>
+          <p class="timeline-state">PHASE II</p>
+          <h3>千通道模块化扩展</h3>
+          <p>通过多板同步与高速通信，将单板架构扩展至1000通道级系统。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <p class="eyebrow">EMBEDDED · PCB · REAL-TIME CONTROL</p>
+      <h2>把算法变成可测量、可扩展的硬件系统。</h2>
+      <a class="button primary" href="https://github.com/weiyiw510-dotcom" target="_blank" rel="noreferrer">访问我的 GitHub ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Wei Yi</span>
+    <span>Designed for engineering portfolio review</span>
   </footer>
-
-  <!-- 移动端菜单遮罩 -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-content">
-      <button class="close-menu" onclick="toggleMenu()">✕</button>
-      <ul>
-        <li><a href="#" onclick="toggleMenu()">首页</a></li>
-        <li><a href="#reviews" onclick="toggleMenu()">最新测评</a></li>
-        <li><a href="#classics" onclick="toggleMenu()">经典游戏</a></li>
-        <li><a href="#news" onclick="toggleMenu()">游戏新闻</a></li>
-        <li><a href="#ranking" onclick="toggleMenu()">排行榜</a></li>
-      </ul>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
